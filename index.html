@@ -85,6 +85,40 @@ section{scroll-margin-top:90px}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 
+
+<style id="jss-showcase-css">
+:root{--navy:#0b1f3a;--blue:#155eef;--sky:#5aa7ff;--cyan:#20c7d9;--green:#19a974;--amber:#f59e0b;--red:#ef4444;--bg:#f6f9fd;--white:#fff;--muted:#64748b;--line:#e5edf7;--shadow:0 18px 55px rgba(11,31,58,.10)}
+body{background:linear-gradient(180deg,#f8fbff 0,#fff 32%,#f6f9fd 100%);color:var(--navy);overflow-x:hidden}
+.nav-logo{font-weight:900;letter-spacing:-.4px}.nav-logo span{color:var(--blue)}
+.jss-section{padding:82px 22px;position:relative}.jss-wrap{max-width:1120px;margin:auto}
+.jss-kicker{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;background:#eaf2ff;color:var(--blue);font-weight:800;font-size:12px;letter-spacing:.6px}
+.jss-title{font-size:clamp(30px,4vw,48px);line-height:1.08;letter-spacing:-1.5px;margin:15px 0}.jss-sub{font-size:17px;line-height:1.75;color:var(--muted);max-width:760px}
+.jss-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.jss-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.jss-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:var(--shadow);transition:.3s;position:relative;overflow:hidden}
+.jss-card:hover{transform:translateY(-7px);box-shadow:0 28px 70px rgba(11,31,58,.15)}
+.jss-card:after{content:"";position:absolute;width:110px;height:110px;border-radius:50%;background:rgba(21,94,239,.045);right:-45px;bottom:-45px}
+.jss-icon{width:54px;height:54px;border-radius:17px;display:grid;place-items:center;font-size:27px;background:#eaf2ff;margin-bottom:15px}
+.jss-num{font-size:13px;font-weight:900;color:var(--blue)}.jss-card h3{margin:6px 0 9px;font-size:20px}.jss-card p{color:var(--muted);line-height:1.65;margin:0}
+.hero-show{min-height:690px;display:grid;align-items:center;position:relative;overflow:hidden;background:radial-gradient(circle at 72% 35%,#dcebff 0,transparent 31%),linear-gradient(135deg,#fff 0,#f3f8ff 100%)}
+.hero-show .jss-wrap{display:grid;grid-template-columns:1.08fr .92fr;gap:45px;align-items:center}
+.hero-badges{display:flex;gap:9px;flex-wrap:wrap;margin:22px 0}.hero-badges span{padding:8px 12px;background:#fff;border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:700}
+.hero-art{min-height:430px;position:relative;display:grid;place-items:center}
+.globe{width:290px;height:290px;border-radius:50%;background:linear-gradient(145deg,#dcecff,#fff);box-shadow:0 30px 70px rgba(21,94,239,.18),inset 0 0 0 14px rgba(255,255,255,.7);position:relative;animation:float 5s ease-in-out infinite}
+.globe:before,.globe:after{content:"";position:absolute;border:2px solid #8bbcff;border-radius:50%}
+.globe:before{inset:25px 70px}.globe:after{inset:70px 25px;transform:rotate(55deg)}
+.pin{position:absolute;font-size:29px;animation:orbit 5s ease-in-out infinite}.p1{top:40px;left:70px}.p2{right:50px;top:95px;animation-delay:.8s}.p3{left:95px;bottom:55px;animation-delay:1.5s}.p4{right:85px;bottom:70px;animation-delay:2.2s}
+.float-card{position:absolute;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);border-radius:18px;padding:13px 16px;display:flex;gap:10px;align-items:center;font-size:13px;font-weight:800;animation:float 4s ease-in-out infinite}.fc1{top:30px;right:10px}.fc2{bottom:45px;left:0;animation-delay:1s}.fc3{top:190px;right:-5px;animation-delay:2s}
+.trust{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:30px;color:var(--muted);font-size:13px}.trust b{color:var(--navy)}.logo-pill{padding:10px 14px;border:1px solid var(--line);border-radius:13px;background:#fff;font-weight:900;box-shadow:0 8px 25px rgba(11,31,58,.06)}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px}.flow-item{text-align:center;position:relative;padding:15px}.flow-item:not(:last-child):after{content:"";position:absolute;top:35px;left:65%;right:-35%;height:3px;background:linear-gradient(90deg,#bcd6ff,#dbe7f7);z-index:0}.flow-dot{width:52px;height:52px;margin:auto;display:grid;place-items:center;border-radius:50%;background:#eaf2ff;color:var(--blue);font-weight:900;border:5px solid #fff;box-shadow:0 0 0 2px #dce8fa;position:relative;z-index:1}.flow-item b{display:block;margin-top:12px}.flow-item small{display:block;color:var(--muted);margin-top:5px}
+.problem-demo{background:linear-gradient(135deg,#0b1f3a,#123b70);color:#fff;border-radius:30px;padding:48px;overflow:hidden;position:relative}.problem-demo:before{content:"";position:absolute;width:330px;height:330px;border:60px solid rgba(90,167,255,.10);border-radius:50%;right:-130px;top:-130px}
+.problem-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:25px}.problem-chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13);padding:13px 15px;border-radius:13px;color:#e9f2ff;cursor:pointer;transition:.2s}.problem-chip:hover{background:rgba(255,255,255,.15);transform:translateX(4px)}
+.metric-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}.metric{padding:24px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}.metric strong{font-size:30px;display:block}.metric span{color:var(--muted);font-size:13px}
+.quote{font-size:22px;line-height:1.55;font-weight:750}.mini-list{display:grid;gap:11px;margin-top:18px}.mini-list div{display:flex;gap:10px;align-items:flex-start}.check{width:22px;height:22px;border-radius:50%;background:#e8f8f1;color:var(--green);display:grid;place-items:center;flex:none;font-size:12px;font-weight:900}
+.reveal2{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}.reveal2.on{opacity:1;transform:none}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}@keyframes orbit{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(5deg)}}
+@media(max-width:850px){.hero-show .jss-wrap{grid-template-columns:1fr}.hero-art{min-height:370px}.jss-grid,.problem-list{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr 1fr}.flow-item:after{display:none}.metric-row{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.jss-grid,.jss-grid-2,.problem-list,.metric-row{grid-template-columns:1fr}.problem-demo{padding:30px 22px}.globe{width:235px;height:235px}.hero-show{min-height:620px}}
+</style>
 </head>
 <body>
 <header>
@@ -172,6 +206,138 @@ section{scroll-margin-top:90px}
 </div>
 </section>
 </main>
+
+
+<section class="hero-show">
+  <div class="jss-wrap">
+    <div class="reveal2">
+      <span class="jss-kicker">🇮🇳 COMMUNITY PROBLEM SOLVING PLATFORM</span>
+      <h1 class="jss-title">From a citizen's problem to a solution that can be tested.</h1>
+      <p class="jss-sub">JAN SAMADHAN SETU connects community problems with universities, students, startups, industry and government teams. Report an issue, understand its priority, find the right expertise and track the journey.</p>
+      <div class="hero-badges"><span>📍 Location-aware</span><span>🤖 AI-assisted triage</span><span>🤝 Solution matching</span><span>📊 Impact tracking</span></div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="#demo-problems" class="btn" style="background:#155eef;color:#fff;padding:13px 20px;text-decoration:none;font-weight:800">Explore Demo Problems →</a>
+        <a href="#how-it-works" class="btn" style="background:#fff;border:1px solid #dbe5f2;padding:13px 20px;text-decoration:none;font-weight:800;color:#10233f">See How It Works</a>
+      </div>
+      <div class="trust"><span>Built for</span><div class="logo-pill">TriBridge</div><div class="logo-pill">SIH 2026</div><div class="logo-pill">SIH26043</div><div class="logo-pill">Disaster Management</div></div>
+    </div>
+    <div class="hero-art reveal2">
+      <div class="globe"><div class="pin p1">📍</div><div class="pin p2">💧</div><div class="pin p3">🏠</div><div class="pin p4">🚧</div></div>
+      <div class="float-card fc1">🤖 AI Triage <span style="color:#19a974">●</span></div>
+      <div class="float-card fc2">💡 Solution matched</div>
+      <div class="float-card fc3">📈 Impact tracked</div>
+    </div>
+  </div>
+</section>
+
+<section class="jss-section" id="how-it-works">
+  <div class="jss-wrap">
+    <span class="jss-kicker">THE JOURNEY</span>
+    <h2 class="jss-title">One simple flow, from report to impact.</h2>
+    <p class="jss-sub">The MVP demonstrates the core journey described in the project: capture the challenge, connect it to the right expertise and deliver a trackable solution.</p>
+    <div class="flow">
+      <div class="flow-item reveal2"><div class="flow-dot">1</div><b>Report</b><small>Citizen shares a local problem</small></div>
+      <div class="flow-item reveal2"><div class="flow-dot">2</div><b>AI Triage</b><small>Priority and category are suggested</small></div>
+      <div class="flow-item reveal2"><div class="flow-dot">3</div><b>Match</b><small>Relevant solution partners connect</small></div>
+      <div class="flow-item reveal2"><div class="flow-dot">4</div><b>Track</b><small>Pilot, progress and impact</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="jss-section" style="background:#f7faff">
+  <div class="jss-wrap">
+    <span class="jss-kicker">WHY THIS PLATFORM</span>
+    <h2 class="jss-title">Designed around real community needs.</h2>
+    <div class="jss-grid">
+      <div class="jss-card reveal2"><div class="jss-icon">📣</div><div class="jss-num">01 · CAPTURE</div><h3>Problems become visible</h3><p>Citizens and local stakeholders can share a problem with useful details such as description, urgency, evidence and location.</p></div>
+      <div class="jss-card reveal2"><div class="jss-icon">🧠</div><div class="jss-num">02 · CONNECT</div><h3>Problems reach expertise</h3><p>AI-assisted sorting helps organize reports, identify priority and connect challenges with suitable university or industry capabilities.</p></div>
+      <div class="jss-card reveal2"><div class="jss-icon">🚀</div><div class="jss-num">03 · DELIVER</div><h3>Ideas move toward action</h3><p>Partners can work through milestones, pilots, validation and deployment while progress is visible to stakeholders.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="jss-section" id="demo-problems">
+  <div class="jss-wrap">
+    <div class="problem-demo reveal2">
+      <span class="jss-kicker" style="background:rgba(255,255,255,.12);color:#fff">LIVE DEMO LIBRARY</span>
+      <h2 class="jss-title" style="color:#fff">Try a real-world problem scenario.</h2>
+      <p style="color:#cbd9ee;max-width:720px;line-height:1.7">Use these demo cases during your SIH presentation. Click a problem to open the reporting workflow and show how the platform responds.</p>
+      <div class="problem-list" id="demo-problem-list">
+        <div class="problem-chip">🌧️ Flooded residential road</div><div class="problem-chip">💧 Unsafe drinking water</div><div class="problem-chip">🚧 Blocked drainage</div>
+        <div class="problem-chip">🌉 Damaged bridge</div><div class="problem-chip">🏥 Emergency health access</div><div class="problem-chip">⚡ Power outage after storm</div>
+        <div class="problem-chip">🌾 Crop damage after flood</div><div class="problem-chip">🗑️ Waste accumulation</div><div class="problem-chip">🏫 Damaged school building</div>
+        <div class="problem-chip">🛣️ Road damage</div><div class="problem-chip">🌊 River overflow alert</div><div class="problem-chip">📡 Network disruption</div>
+        <div class="problem-chip">🚨 Emergency shelter need</div><div class="problem-chip">🚰 Broken public water point</div><div class="problem-chip">🌳 Fallen trees blocking road</div>
+        <div class="problem-chip">🏘️ Evacuation support</div><div class="problem-chip">🧯 Fire safety equipment need</div><div class="problem-chip">🚌 Transport disruption</div>
+        <div class="problem-chip">💡 Streetlight failure</div><div class="problem-chip">🧹 Post-disaster cleanup</div><div class="problem-chip">📱 Citizen information gap</div>
+        <div class="problem-chip">🏗️ Unsafe damaged structure</div><div class="problem-chip">🌱 Soil erosion</div><div class="problem-chip">🐄 Livestock rescue support</div>
+      </div>
+      <div id="demo-selected" style="margin-top:22px;display:none;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);padding:17px;border-radius:15px">
+        <b>Selected demo:</b> <span></span><br><small style="color:#cbd9ee">Open “Report a Problem” to continue this scenario.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="jss-section">
+  <div class="jss-wrap">
+    <div class="jss-grid-2">
+      <div class="jss-card reveal2">
+        <span class="jss-kicker">FOR CITIZENS</span>
+        <h2 style="font-size:30px;line-height:1.15">A clearer way to raise a problem.</h2>
+        <div class="mini-list">
+          <div><span class="check">✓</span><span>Describe what is happening and where.</span></div>
+          <div><span class="check">✓</span><span>Choose urgency and problem category.</span></div>
+          <div><span class="check">✓</span><span>Receive a complaint ID for tracking.</span></div>
+          <div><span class="check">✓</span><span>See the suggested next step.</span></div>
+        </div>
+      </div>
+      <div class="jss-card reveal2">
+        <span class="jss-kicker">FOR SOLUTION PARTNERS</span>
+        <h2 style="font-size:30px;line-height:1.15">Turn expertise into local action.</h2>
+        <div class="mini-list">
+          <div><span class="check">✓</span><span>Find challenges relevant to your expertise.</span></div>
+          <div><span class="check">✓</span><span>Collaborate with students, universities and industry.</span></div>
+          <div><span class="check">✓</span><span>Move promising ideas into pilot projects.</span></div>
+          <div><span class="check">✓</span><span>Track progress and outcomes.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="jss-section" style="background:linear-gradient(180deg,#fff,#f2f7ff)">
+  <div class="jss-wrap">
+    <span class="jss-kicker">IMPACT DASHBOARD</span>
+    <h2 class="jss-title">Make progress easy to understand.</h2>
+    <p class="jss-sub">The dashboard view is designed to give stakeholders a simple picture of reported issues, work in progress and outcomes.</p>
+    <div class="metric-row">
+      <div class="metric reveal2"><strong>24</strong><span>Demo problem scenarios</span></div>
+      <div class="metric reveal2"><strong>4</strong><span>Key stakeholder groups</span></div>
+      <div class="metric reveal2"><strong>7</strong><span>Core implementation stages</span></div>
+      <div class="metric reveal2"><strong>1</strong><span>Shared problem-to-solution flow</span></div>
+    </div>
+    <div class="jss-card reveal2" style="margin-top:22px">
+      <div class="quote">“The goal is not just to collect complaints — it is to connect the right problem with the right people and track what happens next.”</div>
+      <p style="margin-top:13px;color:#64748b">JAN SAMADHAN SETU · TriBridge</p>
+    </div>
+  </div>
+</section>
+
+<section class="jss-section">
+  <div class="jss-wrap">
+    <span class="jss-kicker">ECOSYSTEM</span>
+    <h2 class="jss-title">Built for collaboration.</h2>
+    <div class="jss-grid">
+      <div class="jss-card reveal2"><div class="jss-icon">👥</div><h3>Citizens & Communities</h3><p>Raise problems, provide evidence and follow progress.</p></div>
+      <div class="jss-card reveal2"><div class="jss-icon">🎓</div><h3>Universities & Students</h3><p>Work on real-world challenges and develop practical solutions.</p></div>
+      <div class="jss-card reveal2"><div class="jss-icon">🏢</div><h3>Industry, Startups & CSR</h3><p>Bring expertise, resources, mentoring and pilot support.</p></div>
+      <div class="jss-card reveal2"><div class="jss-icon">🏛️</div><h3>Government Departments</h3><p>Use progress views and trends to understand local needs.</p></div>
+      <div class="jss-card reveal2"><div class="jss-icon">🧪</div><h3>Pilot & Validate</h3><p>Move selected ideas through testing and validation before wider deployment.</p></div>
+      <div class="jss-card reveal2"><div class="jss-icon">📈</div><h3>Feedback & Impact</h3><p>Capture outcomes and feedback to improve the next cycle.</p></div>
+    </div>
+  </div>
+</section>
 
 <footer>JAN SAMADHAN SETU • SIH26043 • Team TriBridge</footer>
 
@@ -271,5 +437,17 @@ document.addEventListener("DOMContentLoaded",()=>{
 });
 </script>
 
+
+<script id="jss-showcase-js">
+document.addEventListener("DOMContentLoaded",()=>{
+ const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on");obs.unobserve(e.target)}}),{threshold:.08});
+ document.querySelectorAll(".reveal2").forEach(e=>obs.observe(e));
+ const chips=document.querySelectorAll("#demo-problem-list .problem-chip"), box=document.querySelector("#demo-selected");
+ chips.forEach(c=>c.addEventListener("click",()=>{
+   box.style.display="block";box.querySelector("span").textContent=c.textContent.trim();
+   box.animate([{transform:"scale(.98)",opacity:.5},{transform:"scale(1)",opacity:1}],{duration:260});
+ }));
+});
+</script>
 </body>
 </html>
