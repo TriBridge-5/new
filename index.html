@@ -35,6 +35,56 @@ header{background:linear-gradient(135deg,#073b5c,#0b6eaa);padding:15px 6%;box-sh
 nav button{font-size:14px;transition:.2s}nav button:hover,nav button.active{background:#ffffff1c;transform:translateY(-1px)}
 main{max-width:1160px;padding:42px 20px 55px}.hero{position:relative;overflow:hidden;border:1px solid #e0e8ef;padding:48px;box-shadow:0 14px 40px #17324d12}.hero:after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;right:-80px;top:-100px;background:#0b6eaa12}.hero h1{font-size:44px;letter-spacing:-1px}.subtitle{font-size:19px}.hero p:nth-of-type(2){max-width:780px;color:#566577;line-height:1.7}.btn{box-shadow:0 5px 12px #0b6eaa24;transition:.2s}.btn:hover{transform:translateY(-1px);box-shadow:0 8px 18px #0b6eaa30}.grid{gap:20px}.card,.form{border:1px solid #e2e8ee;box-shadow:0 8px 24px #17324d0d}.card{transition:.2s}.card:hover{transform:translateY(-2px);box-shadow:0 12px 28px #17324d14}.step{border-left:0;border-top:4px solid #0b6eaa}.step h3{color:#0b3d62}.form{max-width:820px;padding:30px}.form label{color:#30475b;font-size:14px}input,select,textarea{background:#fbfdff;border:1px solid #cbd7e2;padding:13px 14px;outline:none;transition:.2s}input:focus,select:focus,textarea:focus{border-color:#0b6eaa;box-shadow:0 0 0 3px #0b6eaa14}textarea{resize:vertical}.status{background:#f0f8f3;border:1px solid #bfe0ca;line-height:1.6;box-shadow:0 4px 12px #1c7c3a0b}.badge{background:#fff3cf;border:1px solid #f1d98b}.page>h2{font-size:30px;margin-bottom:8px}.page>p{color:#5b6b7b}.section-kicker{font-size:12px;font-weight:700;color:#0b6eaa;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:7px}
 </style>
+
+<style id="cool-web-upgrade">
+:root{
+  --ink:#10233f;--muted:#607089;--line:#e7edf5;--bg:#f5f8fc;
+  --primary:#155eef;--primary2:#0b4fc7;--card:#fff;--shadow:0 18px 50px rgba(16,35,63,.10);
+}
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(circle at 10% 0%,rgba(21,94,239,.09),transparent 28rem),
+    radial-gradient(circle at 90% 15%,rgba(21,94,239,.06),transparent 24rem),var(--bg);
+}
+nav{backdrop-filter:blur(14px);background:rgba(255,255,255,.88)!important;position:sticky!important;top:0;z-index:50;box-shadow:0 1px 0 rgba(16,35,63,.06)}
+.hero,.hero-section,.home-hero{min-height:560px;display:grid;align-items:center;position:relative;overflow:hidden}
+.hero:after,.hero-section:after,.home-hero:after{
+ content:"";position:absolute;width:420px;height:420px;border-radius:50%;
+ border:70px solid rgba(21,94,239,.05);right:-160px;top:60px;animation:float 7s ease-in-out infinite;
+}
+section{scroll-margin-top:90px}
+.card,.feature-card,.stat-card,.panel{
+ border:1px solid var(--line)!important;border-radius:22px!important;box-shadow:var(--shadow)!important;
+ transition:transform .25s ease,box-shadow .25s ease!important;
+}
+.card:hover,.feature-card:hover,.stat-card:hover,.panel:hover{transform:translateY(-5px);box-shadow:0 24px 65px rgba(16,35,63,.14)!important}
+.btn,button,.cta{
+ border-radius:12px!important;transition:transform .2s ease,box-shadow .2s ease,background .2s ease!important;
+}
+.btn:hover,button:hover,.cta:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(21,94,239,.20)}
+.badge,.pill{border-radius:999px!important}
+.fade-up{animation:fadeUp .65s both}
+.delay-1{animation-delay:.08s}.delay-2{animation-delay:.16s}.delay-3{animation-delay:.24s}.delay-4{animation-delay:.32s}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+.progress-line{height:8px;background:#eaf0f8;border-radius:99px;overflow:hidden}
+.progress-line span{display:block;height:100%;width:0;background:linear-gradient(90deg,#155eef,#55a6ff);border-radius:99px;transition:width 1s ease}
+.template-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.template-card{padding:24px;background:#fff;border:1px solid var(--line);border-radius:20px;cursor:pointer;position:relative;overflow:hidden}
+.template-card:before{content:"";position:absolute;inset:0 auto auto 0;height:4px;width:100%;background:linear-gradient(90deg,#155eef,#72b1ff)}
+.template-card .icon{font-size:32px;margin-bottom:10px}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:35px 0}
+.timeline .step{position:relative;text-align:center;padding:10px}
+.timeline .dot{width:44px;height:44px;border-radius:50%;background:#e9f1ff;color:#155eef;display:grid;place-items:center;margin:0 auto 10px;font-weight:800}
+.timeline .step:not(:last-child):after{content:"";height:2px;background:#dbe6f5;position:absolute;top:32px;left:calc(50% + 22px);right:calc(-50% + 22px)}
+.notice{padding:16px 18px;border:1px solid #dbe7f8;background:#f7faff;border-radius:16px;color:#3b506d}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(18px)}}
+@media(max-width:800px){.hero,.hero-section,.home-hero{min-height:480px}.timeline{grid-template-columns:1fr 1fr}.timeline .step:not(:last-child):after{display:none}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+
 </head>
 <body>
 <header>
@@ -160,5 +210,66 @@ function partnerAction(){
  waitThen(()=>box.innerHTML='<b>Solution proposal recorded.</b><br>The challenge can now move to collaboration and pilot planning.');
 }
 </script>
+
+<script id="cool-web-upgrade-js">
+document.addEventListener("DOMContentLoaded",()=>{
+  // Scroll reveal for a more natural website feel.
+  const els=[...document.querySelectorAll("section,.card,.feature-card,.stat-card,.panel")];
+  els.forEach((el,i)=>{
+    if(!el.classList.contains("reveal")) el.classList.add("reveal");
+    el.style.transitionDelay=(Math.min(i%6,5)*60)+"ms";
+  });
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");io.unobserve(e.target)}})
+  },{threshold:.08});
+  els.forEach(e=>io.observe(e));
+
+  // Add a lightweight website-style "How it works" block before footer.
+  const footer=document.querySelector("footer");
+  if(footer && !document.querySelector("#how-it-works-upgrade")){
+    const wrap=document.createElement("section");
+    wrap.id="how-it-works-upgrade";
+    wrap.className="reveal";
+    wrap.innerHTML=`
+      <div style="max-width:1100px;margin:0 auto;padding:70px 22px">
+        <div style="text-align:center;max-width:700px;margin:auto">
+          <div class="badge" style="display:inline-block;padding:7px 12px;background:#eaf1ff;color:#155eef;font-weight:700">HOW IT WORKS</div>
+          <h2 style="font-size:36px;margin:14px 0 10px;color:#10233f">From local problem to practical solution</h2>
+          <p style="color:#607089;line-height:1.7">JAN SAMADHAN SETU brings citizens, solution partners and public stakeholders into one simple workflow.</p>
+        </div>
+        <div class="timeline">
+          <div class="step"><div class="dot">1</div><b>Report</b><div style="color:#607089;margin-top:6px">Share the problem</div></div>
+          <div class="step"><div class="dot">2</div><b>AI Triage</b><div style="color:#607089;margin-top:6px">Sort and prioritize</div></div>
+          <div class="step"><div class="dot">3</div><b>Match</b><div style="color:#607089;margin-top:6px">Connect expertise</div></div>
+          <div class="step"><div class="dot">4</div><b>Track</b><div style="color:#607089;margin-top:6px">Pilot and measure impact</div></div>
+        </div>
+      </div>`;
+    footer.parentNode.insertBefore(wrap,footer);
+  }
+
+  // Add a small set of selectable "quick templates" to the report page when a report form exists.
+  const form=document.querySelector("form");
+  if(form && !document.querySelector("#quick-templates-upgrade")){
+    const box=document.createElement("div");
+    box.id="quick-templates-upgrade";
+    box.style.cssText="max-width:1100px;margin:0 auto 28px;padding:0 22px";
+    box.innerHTML=`
+      <div class="notice"><b>Quick start:</b> choose a common community problem below to fill the form faster.</div>
+      <div class="template-grid" style="margin-top:16px">
+        <div class="template-card" data-fill="Flooded road"><div class="icon">🌧️</div><b>Flooded Road</b><p style="color:#607089">Waterlogging after heavy rain</p></div>
+        <div class="template-card" data-fill="Damaged bridge"><div class="icon">🌉</div><b>Damaged Bridge</b><p style="color:#607089">Unsafe or damaged crossing</p></div>
+        <div class="template-card" data-fill="Drinking water issue"><div class="icon">💧</div><b>Water Supply</b><p style="color:#607089">Shortage or contamination</p></div>
+        <div class="template-card" data-fill="Blocked drainage"><div class="icon">🚧</div><b>Blocked Drainage</b><p style="color:#607089">Drain blockage or overflow</p></div>
+      </div>`;
+    form.parentNode.insertBefore(box,form);
+    box.querySelectorAll(".template-card").forEach(card=>card.addEventListener("click",()=>{
+      const target=[...form.querySelectorAll("input,textarea,select")].find(x=>/problem|description|issue/i.test(x.name+" "+x.placeholder+" "+x.id));
+      if(target){target.value=card.dataset.fill;target.dispatchEvent(new Event("input",{bubbles:true}));target.focus();}
+      card.animate([{transform:"scale(1)"},{transform:"scale(.97)"},{transform:"scale(1)"}],{duration:220});
+    }));
+  }
+});
+</script>
+
 </body>
 </html>
