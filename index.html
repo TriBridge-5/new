@@ -246,8 +246,12 @@ function renderProblems(){
 box.innerHTML=problems.map((p,i)=>`<article class="problem" onclick="startDemo(${i})">${art(p)}<div class="problemBody"><div class="num">DEMO ${String(i+1).padStart(2,'0')} · ${p[3].toUpperCase()}</div><h3>${p[0]}</h3><p>${p[1]}</p><button>Run this scenario →</button></div></article>`).join('');
 }
 function startDemo(i){
+ selectedIndex=i;
  selected=problems[i];
- currentId='JSS-'+String(Math.floor(100000+Math.random()*899999));
+ const existing=JSON.parse(localStorage.getItem('jss_reports')||'[]');
+ const old=existing.find(r=>r.demoIndex===i);
+ currentId=old ? old.id : ('JSS-'+new Date().toISOString().slice(2,10).replace(/-/g,'')+'-'+String(i+1).padStart(2,'0'));
+
  document.getElementById('processTitle').textContent=selected[0];
  go('process');
  const stages=[
@@ -276,14 +280,22 @@ function showResult(){
  document.getElementById('partnerName').textContent=selected[4];
  document.getElementById('partnerText').textContent=selected[5];
  document.getElementById('nextStep').textContent=selected[6];
- localStorage.setItem('jss_last',JSON.stringify({id:currentId,title:selected[0],priority:selected[3],partner:selected[4]}));
+ const report={id:currentId,title:selected[0],priority:selected[3],partner:selected[4],demoIndex:selectedIndex};
+ const reports=JSON.parse(localStorage.getItem('jss_reports')||'[]');
+ const idx=reports.findIndex(r=>r.id===currentId);
+ if(idx>=0) reports[idx]=report; else reports.push(report);
+ localStorage.setItem('jss_reports',JSON.stringify(reports));
+ localStorage.setItem('jss_last',JSON.stringify(report));
  go('result');
 }
 function trackReport(){
  const q=document.getElementById('trackInput').value.trim().toUpperCase();
- const saved=JSON.parse(localStorage.getItem('jss_last')||'null');
+ const reports=JSON.parse(localStorage.getItem('jss_reports')||'[]');
+ const last=JSON.parse(localStorage.getItem('jss_last')||'null');
+ if(last && !reports.some(r=>r.id===last.id)) reports.push(last);
+ const saved=reports.find(r=>r.id===q);
  const box=document.getElementById('trackResult');
- if(saved && q===saved.id){
+ if(saved){
   box.innerHTML=`<div class="statusCard" style="text-align:left">
 <div class="statusTop"><div><div class="eyebrow">📄 REPORT FOUND</div><h2 style="margin:8px 0 4px">${saved.title}</h2><p style="color:var(--muted);margin:0">Complaint ID: <b>${saved.id}</b> · Priority: <b>${saved.priority}</b></p></div><span class="livePill"><i class="liveDot"></i> Status: In Progress</span></div>
 <div class="statusline">
@@ -333,7 +345,7 @@ function trackReport(){
     },1050+700*i);
   });
  } else {
-  box.innerHTML=`<div class="statusCard"><h3>Demo report not found</h3><p style="color:var(--muted)">Run one of the demo scenarios first. Its generated ID will be saved in this browser for tracking.</p><button class="btn primary" onclick="go('demo')">Open demo library</button></div>`;
+  box.innerHTML=`<div class="statusCard"><h3>Demo report not found</h3><p style="color:var(--muted)">Each demo gets its own Complaint ID. Run a demo, copy its ID from the result page, then enter that ID here to track it. IDs are saved in this browser.</p><button class="btn primary" onclick="go('demo')">Open demo library</button></div>`;
  }
 }
 function submitPartner(){
