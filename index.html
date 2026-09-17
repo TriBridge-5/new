@@ -79,6 +79,17 @@ footer{background:#062452;color:#c9d9ee;padding:42px 22px}.footin{max-width:1180
 .reportPhoto.real{padding:0;background:#eef4f8;}
 .reportPhoto.real:before,.reportPhoto.real:after{display:none!important;}
 .photoCredit{font-size:9px;color:#70859a;margin-top:6px;}
+
+/* COMPACT DEMO TYPOGRAPHY */
+.demoGrid .problem h3{font-size:14px;line-height:1.25;margin:6px 0 5px}
+.demoGrid .problem p{font-size:11px;line-height:1.4;margin:0}
+.demoGrid .problem .num{font-size:9px;letter-spacing:.35px}
+.demoGrid .problem button{font-size:10px;padding:7px 10px;margin-top:9px}
+.demoGrid .photoCreditDemo{font-size:8px;line-height:1.25;margin-top:6px;color:#7b8ca1}
+.demoGrid .problemBody{padding:13px 16px 0}
+.problemPhoto{height:120px;position:relative;overflow:hidden;background:#eaf2f8}
+.problemPhoto img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .35s ease}
+.problem:hover .problemPhoto img{transform:scale(1.04)}
 </style>
 </head>
 <body>
@@ -232,30 +243,30 @@ function go(id){
 function renderProblems(){
  const box=document.getElementById('problems');
  const demoImages=[
-  ["https://commons.wikimedia.org/wiki/Special:FilePath/Walking_through_a_flooded_street_due_to_blocked_drainage._02.jpg?width=900","Crown2022 / Wikimedia Commons"],
-  ["https://commons.wikimedia.org/wiki/Special:FilePath/Blocked_water_drain.jpg?width=900","Unr3strained / Wikimedia Commons"],
-  ["https://commons.wikimedia.org/wiki/Special:FilePath/A_photo_of_a_blocked_drainage.jpg?width=900","Okpashira / Wikimedia Commons"],
-  ["https://commons.wikimedia.org/wiki/Special:FilePath/Bridge_damaged_by_flood,_Te_Auaunga_creek._Auckland_28_January_2023.jpg?width=900","Wikimedia Commons"],
-  ["https://pic.la.lv/2014/09/15022065660_1c28da0a72_z.jpg","Emergency response photo / LA.LV"],
-  ["https://images2.minutemediacdn.com/image/upload/c_fill%2Cw_1200%2Car_4%3A3%2Cf_auto%2Cq_auto%2Cg_auto/shape/cover/sport/gettyimages-154993617-a865d8124dc6c76731aba2a693ea5603.jpg","Storm aftermath photo / Mental Floss"],
-  ["https://bcp.cdnchinhphu.vn/334894974524682240/2022/7/26/nn-16588249139361167233544.jpg","Flood-damaged agriculture / Government of Vietnam"],
-  ["https://i.kobe-np.co.jp/news/society/202402/img/a_17346843.jpg","Disaster cleanup photo / Kobe Shimbun"],
-  ["https://commons.wikimedia.org/wiki/Special:FilePath/School_being_damaged.jpg?width=900","Owngchu1 / Wikimedia Commons"],
-  ["https://commons.wikimedia.org/wiki/Special:FilePath/Road_damaged_by_pot_holes.jpg?width=900","Obuezie / Wikimedia Commons"],
-  ["https://www.unesco.org/sites/default/files/styles/best_image/public/floods_0.jpg.webp?itok=Ym4y94qE","UNESCO"],
-  ["https://commons.wikimedia.org/wiki/Special:FilePath/Walking_through_a_flooded_street_due_to_blocked_drainage._02.jpg?width=900","Crown2022 / Wikimedia Commons"],
-  ["https://arc-anglerfish-arc2-prod-abccolor.s3.amazonaws.com/public/64RKXRQOPFD6ZMYLFV4G5R44Q4.jpg","Flood evacuation photo / ABC Color"],
-  ["https://commons.wikimedia.org/wiki/Special:FilePath/Blocked_water_drain.jpg?width=900","Unr3strained / Wikimedia Commons"],
-  ["https://commons.wikimedia.org/wiki/Special:FilePath/Road_blocked_by_fallen_tree_-_geograph.org.uk_-_2927837.jpg?width=900","Patrick Mackie / Wikimedia Commons"],
-  ["https://arc-anglerfish-arc2-prod-abccolor.s3.amazonaws.com/public/64RKXRQOPFD6ZMYLFV4G5R44Q4.jpg","Flood evacuation photo / ABC Color"],
-  ["https://commons.wikimedia.org/wiki/Special:FilePath/Safety_equipment.jpg?width=900","Wikimedia Commons"],
-  ["https://media.assettype.com/outlookindia/2025-09-23/5firll00/kolkataHeavyRain920250923.jpg?auto=format%2Ccompress&dpr=1.0&fit=max&format=webp&w=801","Flooded public transport / Outlook India"],
-  ["https://commons.wikimedia.org/wiki/Special:FilePath/Damaged_public_street_light,_Feijenoord,_Rotterdam_(2021)_05.jpg?width=900","Donald Trung / Wikimedia Commons"],
-  ["https://i.kobe-np.co.jp/news/society/202402/img/a_17346843.jpg","Disaster cleanup photo / Kobe Shimbun"],
-  ["https://arc-anglerfish-arc2-prod-abccolor.s3.amazonaws.com/public/64RKXRQOPFD6ZMYLFV4G5R44Q4.jpg","Flood evacuation photo / ABC Color"],
-  ["https://commons.wikimedia.org/wiki/Special:FilePath/Unsafe_house_after_earthquake.jpg?width=900","hanonimas / Wikimedia Commons"],
-  ["https://commons.wikimedia.org/wiki/Special:FilePath/Sand_on_the_road.jpg?width=900","Wikimedia Commons"],
-  ["https://images.indianexpress.com/2019/08/punjab-floods-animals2.jpg?resize=600","Indian Express / NDRF animal rescue" ]
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Flood_affected_road.jpg?width=900","Assam, India / KEmel49 / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Flood_Water_on_Main_road.jpg?width=900","Vijayawada, India / Sripathroy / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Walking_through_a_flooded_street_due_to_blocked_drainage._02.jpg?width=900","India flood/drainage reference / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Destroyed_bridge_at_Jibhi_Waterfall.jpg?width=900","Himachal Pradesh, India / Rohan Pinto / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Armed_forces_personnel_evacuating_an_ailing_person_from_flood_affected_area_of_Jammu_%26_Kashmir%2C_on_September_10%2C_2014.jpg?width=900","Jammu & Kashmir, India / Government of India"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Indian_Air_Force_Relief_and_Rescue_Op_during_Tamil_Nadu_Flood_December_2015.jpg?width=900","Tamil Nadu, India / Indian Air Force"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Flood_kerala_2018_3.jpg?width=900","Kerala, India / Vishnus00 / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Wastedel.jpg?width=900","New Delhi, India / Rrthakur22 / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Lal_ded_School2.jpg?width=900","India / Oniongas / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Flood_affected_road.jpg?width=900","Assam, India / KEmel49 / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Flooding_in_Mumbai%2C_India_2017.jpg?width=900","Mumbai, India / Paasikivi / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Flood_Water_on_Main_road.jpg?width=900","Vijayawada, India / Sripathroy / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Stranded_people_from_flood_affected_areas_of_Jammu_%26_Kashmir_are_being_evacuated_to_safer_place_by_the_armed_forces%2C_on_September_11%2C_2014.jpg?width=900","Jammu & Kashmir, India / Government of India"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Blocked_water_drain.jpg?width=900","India drainage reference / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Walking_through_a_flooded_street_due_to_blocked_drainage._02.jpg?width=900","India flood/drainage reference / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Rescue_and_evacuation_of_stranded_pilgrims_during_the_2013_Uttarakhand_floods%2C_during_an_operation_coordinated_by_Karnataka_minister_Santosh_Lad.png?width=900","Uttarakhand, India / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Minimax_fire_extinguisher.jpg?width=900","Attikan, India / Shyamal / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Flooding_in_Mumbai%2C_India_2017.jpg?width=900","Mumbai, India / Paasikivi / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Damaged_dangerous_street_light_pole_20180524.jpg?width=900","India / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Wastedel.jpg?width=900","New Delhi, India / Rrthakur22 / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/The_Indian_Air_Force_Helicopters_carrying_out_rescue%2C_relief_and_evacuation_of_people_marooned_during_the_flood_fury%2C_in_Jammu_and_Kashmir_on_September_06%2C_2014_%281%29.jpg?width=900","Jammu & Kashmir, India / Government of India"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Lal_ded_School2.jpg?width=900","India / Oniongas / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Flood_affected_road.jpg?width=900","Assam, India / KEmel49 / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Stranded_mules_during_the_Uttarakhand_Floods_of_2013_as_encountered_by_People_for_Animals_during_a_rescue_operation.jpg?width=900","Uttarakhand, India / Pulakit Singh / Wikimedia Commons"]
  ];
  const art=(p,i)=>{const [url,credit]=demoImages[i]||demoImages[0]; return `<div class="problemPhoto"><img src="${url}" alt="Real photo related to ${p[0]}" loading="lazy"><span class="photoTag">REAL PHOTO</span></div>`;};
 box.innerHTML=problems.map((p,i)=>`<article class="problem" onclick="startDemo(${i})">${art(p,i)}<div class="problemBody"><div class="num">DEMO ${String(i+1).padStart(2,'0')} · ${p[3].toUpperCase()}</div><h3>${p[0]}</h3><p>${p[1]}</p><div class="photoCreditDemo">${demoImages[i][1]}</div><button>Run this scenario →</button></div></article>`).join('');
