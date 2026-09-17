@@ -231,19 +231,34 @@ function go(id){
 }
 function renderProblems(){
  const box=document.getElementById('problems');
- const art=(p)=>{
- const c=p[2];
- if(c==='Water & sanitation') return `<div class="problemArt theme-water"><span class="cloud"></span><span class="wave"></span><span class="wave w2"></span><span class="treeShape">🌳</span><span class="iconShape">🚰</span></div>`;
- if(c==='Public safety') return `<div class="problemArt theme-safety"><span class="cloud"></span><span class="houseShape">🏠</span><span class="bolt">⚠️</span></div>`;
- if(c==='Emergency response') return `<div class="problemArt theme-health"><span class="iconShape">📱</span><span class="bolt">📶</span></div>`;
- if(c==='Energy / Engineering Team') return `<div class="problemArt theme-power"><span class="sun"></span><span class="bolt">⚡</span></div>`;
- if(c==='Agriculture') return `<div class="problemArt theme-agri"><span class="sun"></span><span class="iconShape">🌾</span><span class="treeShape">🌱</span></div>`;
- if(c==='Cleanup') return `<div class="problemArt theme-clean"><span class="cloud"></span><span class="iconShape">🗑️</span><span class="treeShape">🌿</span></div>`;
- if(c==='Transport') return `<div class="problemArt theme-transport"><span class="roadShape"></span><span class="iconShape">🚌</span><span class="bolt">🚧</span></div>`;
- if(c==='Relief') return `<div class="problemArt theme-relief"><span class="iconShape">⛺</span><span class="bolt">📍</span></div>`;
- return `<div class="problemArt theme-disaster"><span class="cloud"></span><span class="waterShape"></span><span class="treeShape">🌳</span><span class="houseShape">🏠</span></div>`;
-};
-box.innerHTML=problems.map((p,i)=>`<article class="problem" onclick="startDemo(${i})">${art(p)}<div class="problemBody"><div class="num">DEMO ${String(i+1).padStart(2,'0')} · ${p[3].toUpperCase()}</div><h3>${p[0]}</h3><p>${p[1]}</p><button>Run this scenario →</button></div></article>`).join('');
+ const demoImages=[
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Walking_through_a_flooded_street_due_to_blocked_drainage._02.jpg?width=900","Crown2022 / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Blocked_water_drain.jpg?width=900","Unr3strained / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/A_photo_of_a_blocked_drainage.jpg?width=900","Okpashira / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Bridge_damaged_by_flood,_Te_Auaunga_creek._Auckland_28_January_2023.jpg?width=900","Wikimedia Commons"],
+  ["https://pic.la.lv/2014/09/15022065660_1c28da0a72_z.jpg","Emergency response photo / LA.LV"],
+  ["https://images2.minutemediacdn.com/image/upload/c_fill%2Cw_1200%2Car_4%3A3%2Cf_auto%2Cq_auto%2Cg_auto/shape/cover/sport/gettyimages-154993617-a865d8124dc6c76731aba2a693ea5603.jpg","Storm aftermath photo / Mental Floss"],
+  ["https://bcp.cdnchinhphu.vn/334894974524682240/2022/7/26/nn-16588249139361167233544.jpg","Flood-damaged agriculture / Government of Vietnam"],
+  ["https://i.kobe-np.co.jp/news/society/202402/img/a_17346843.jpg","Disaster cleanup photo / Kobe Shimbun"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/School_being_damaged.jpg?width=900","Owngchu1 / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Road_damaged_by_pot_holes.jpg?width=900","Obuezie / Wikimedia Commons"],
+  ["https://www.unesco.org/sites/default/files/styles/best_image/public/floods_0.jpg.webp?itok=Ym4y94qE","UNESCO"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Walking_through_a_flooded_street_due_to_blocked_drainage._02.jpg?width=900","Crown2022 / Wikimedia Commons"],
+  ["https://arc-anglerfish-arc2-prod-abccolor.s3.amazonaws.com/public/64RKXRQOPFD6ZMYLFV4G5R44Q4.jpg","Flood evacuation photo / ABC Color"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Blocked_water_drain.jpg?width=900","Unr3strained / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Road_blocked_by_fallen_tree_-_geograph.org.uk_-_2927837.jpg?width=900","Patrick Mackie / Wikimedia Commons"],
+  ["https://arc-anglerfish-arc2-prod-abccolor.s3.amazonaws.com/public/64RKXRQOPFD6ZMYLFV4G5R44Q4.jpg","Flood evacuation photo / ABC Color"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Safety_equipment.jpg?width=900","Wikimedia Commons"],
+  ["https://media.assettype.com/outlookindia/2025-09-23/5firll00/kolkataHeavyRain920250923.jpg?auto=format%2Ccompress&dpr=1.0&fit=max&format=webp&w=801","Flooded public transport / Outlook India"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Damaged_public_street_light,_Feijenoord,_Rotterdam_(2021)_05.jpg?width=900","Donald Trung / Wikimedia Commons"],
+  ["https://i.kobe-np.co.jp/news/society/202402/img/a_17346843.jpg","Disaster cleanup photo / Kobe Shimbun"],
+  ["https://arc-anglerfish-arc2-prod-abccolor.s3.amazonaws.com/public/64RKXRQOPFD6ZMYLFV4G5R44Q4.jpg","Flood evacuation photo / ABC Color"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Unsafe_house_after_earthquake.jpg?width=900","hanonimas / Wikimedia Commons"],
+  ["https://commons.wikimedia.org/wiki/Special:FilePath/Sand_on_the_road.jpg?width=900","Wikimedia Commons"],
+  ["https://images.indianexpress.com/2019/08/punjab-floods-animals2.jpg?resize=600","Indian Express / NDRF animal rescue" ]
+ ];
+ const art=(p,i)=>{const [url,credit]=demoImages[i]||demoImages[0]; return `<div class="problemPhoto"><img src="${url}" alt="Real photo related to ${p[0]}" loading="lazy"><span class="photoTag">REAL PHOTO</span></div>`;};
+box.innerHTML=problems.map((p,i)=>`<article class="problem" onclick="startDemo(${i})">${art(p,i)}<div class="problemBody"><div class="num">DEMO ${String(i+1).padStart(2,'0')} · ${p[3].toUpperCase()}</div><h3>${p[0]}</h3><p>${p[1]}</p><div class="photoCreditDemo">${demoImages[i][1]}</div><button>Run this scenario →</button></div></article>`).join('');
 }
 function startDemo(i){
  selectedIndex=i;
