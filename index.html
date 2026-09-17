@@ -73,6 +73,12 @@ footer{background:#062452;color:#c9d9ee;padding:42px 22px}.footin{max-width:1180
 .reportInfo{padding:13px 14px;background:#fff}.reportInfo h3{font-size:14px;margin:0 0 5px}.infoLine{display:flex;gap:7px;align-items:flex-start;margin:7px 0;font-size:10px;color:#5a7694}.infoLine b{color:#1b5b9d}.infoIcon{width:19px;height:19px;border-radius:50%;display:grid;place-items:center;background:#e8f4ff;flex:none}.priorityHigh{display:inline-block;background:#ffe9e9;color:#e34c4c;border-radius:8px;padding:4px 8px;font-weight:900;font-size:10px}
 .handledCallout{margin-top:14px;border:1px solid #d6ebf7;background:linear-gradient(135deg,#f0fbff,#f4faff);border-radius:14px;padding:12px;display:flex;gap:12px;align-items:center;color:#2269a7;font-size:11px}.handledCallout .bulb{font-size:25px;animation:bulb 2s infinite}@keyframes bulb{50%{transform:rotate(-8deg) scale(1.08)}}
 @media(max-width:700px){.statusline{grid-template-columns:1fr;gap:13px}.snode{text-align:left;display:grid;grid-template-columns:40px 1fr;column-gap:10px;align-items:center}.snode:before{left:18px!important;right:auto!important;top:35px;width:4px;height:100%}.snode:last-child:before{display:none}.snode .dot{grid-row:span 2;margin:0}.snode b{margin:0}.reportCardBody{grid-template-columns:1fr}.reportPhoto{min-height:130px}}
+
+/* REAL REPORT PHOTO */
+.realReportPhoto{width:100%;height:100%;min-height:150px;display:block;object-fit:cover;object-position:center;border-radius:0;}
+.reportPhoto.real{padding:0;background:#eef4f8;}
+.reportPhoto.real:before,.reportPhoto.real:after{display:none!important;}
+.photoCredit{font-size:9px;color:#70859a;margin-top:6px;}
 </style>
 </head>
 <body>
@@ -151,8 +157,8 @@ footer{background:#062452;color:#c9d9ee;padding:42px 22px}.footin{max-width:1180
 </div></div>
 <div class="section"><div class="container">
 <div class="match reveal" style="max-width:760px;margin:0 auto 24px"><div class="eyebrow">📄 PROCESSED REPORT</div>
-<div class="reportCardMock"><div class="reportCardHead">✓ <span>Report Details</span></div><div class="reportCardBody"><div class="reportPhoto"><div class="house">🏠</div><div class="tree">🌳</div><div class="rain2"></div></div><div class="reportInfo"><h3 id="resultCardTitle">Blocked Drainage</h3><div class="infoLine"><span class="infoIcon">📍</span><span><b>Location</b><br>Ward 12, Sector 5, Delhi</span></div><div class="infoLine"><span class="infoIcon">⚙</span><span><b>Category</b><br>Infrastructure &amp; Sanitation</span></div><div class="infoLine"><span class="infoIcon">✹</span><span><b>Priority</b><br><span class="priorityHigh" id="resultCardPriority">High</span></span></div></div></div></div>
-<div class="handledCallout"><div class="bulb">💡</div><div>This issue is being handled by the<br><b id="resultCardPartner">Civil Engineering Team</b>.</div></div></div>
+<div class="reportCardMock"><div class="reportCardHead">✓ <span>Report Details</span></div><div class="reportCardBody"><div class="reportPhoto real"><img class="realReportPhoto" src="https://upload.wikimedia.org/wikipedia/commons/7/78/Walking_through_a_flooded_street_due_to_blocked_drainage._02.jpg" alt="Real photo showing a flooded street and open drainage channel"></div><div class="reportInfo"><h3 id="resultCardTitle">Blocked Drainage</h3><div class="infoLine"><span class="infoIcon">📍</span><span><b>Location</b><br>Ward 12, Sector 5, Delhi</span></div><div class="infoLine"><span class="infoIcon">⚙</span><span><b>Category</b><br>Infrastructure &amp; Sanitation</span></div><div class="infoLine"><span class="infoIcon">✹</span><span><b>Priority</b><br><span class="priorityHigh" id="resultCardPriority">High</span></span></div></div></div></div>
+<div class="photoCredit">Photo: Crown2022 / Wikimedia Commons, CC BY-SA 4.0</div><div class="handledCallout"><div class="bulb">💡</div><div>This issue is being handled by the<br><b id="resultCardPartner">Civil Engineering Team</b>.</div></div></div>
 <div class="resultGrid"><div class="match reveal"><span class="priority" id="priority">Priority: High</span><h3 style="margin-top:16px">AI-assisted triage</h3><p id="triageText" style="color:var(--muted);line-height:1.7"></p><div class="timeline"><div class="tl"><b>Report received</b><span>Citizen challenge captured</span></div><div class="tl"><b>AI triage completed</b><span>Category and urgency identified</span></div><div class="tl"><b>Solution matching</b><span>Relevant partner type suggested</span></div><div class="tl"><b>Pilot & tracking</b><span>Next step is validation and progress tracking</span></div></div></div>
 <div class="match reveal"><h3>🤝 Suggested solution partner</h3><h2 id="partnerName" style="color:var(--blue)"></h2><p id="partnerText" style="color:var(--muted);line-height:1.7"></p><div style="background:#eef8ff;padding:16px;border-radius:15px;margin-top:18px"><b>Suggested next step</b><p id="nextStep" style="margin:6px 0 0;color:var(--muted)"></p></div></div></div>
 </div></div>
@@ -291,14 +297,14 @@ function trackReport(){
 <div class="reportCardMock">
 <div class="reportCardHead">📄 <span>Report Details</span></div>
 <div class="reportCardBody">
-<div class="reportPhoto"><div class="house">🏠</div><div class="tree">🌳</div><div class="rain2"></div></div>
+<div class="reportPhoto real"><img class="realReportPhoto" src="https://upload.wikimedia.org/wikipedia/commons/7/78/Walking_through_a_flooded_street_due_to_blocked_drainage._02.jpg" alt="Real photo showing a flooded street and open drainage channel"></div>
 <div class="reportInfo">
 <h3>${saved.title}</h3>
 <div class="infoLine"><span class="infoIcon">📍</span><span><b>Location</b><br>Ward 12, Sector 5, Delhi</span></div>
 <div class="infoLine"><span class="infoIcon">⚙</span><span><b>Category</b><br>Infrastructure &amp; Sanitation</span></div>
 <div class="infoLine"><span class="infoIcon">✹</span><span><b>Priority</b><br><span class="priorityHigh">${saved.priority}</span></span></div>
 </div></div></div>
-<div class="handledCallout"><div class="bulb">💡</div><div>This issue is being handled by the<br><b>${saved.partner}</b>.</div></div></div>
+<div class="photoCredit">Photo: Crown2022 / Wikimedia Commons, CC BY-SA 4.0</div><div class="handledCallout"><div class="bulb">💡</div><div>This issue is being handled by the<br><b>${saved.partner}</b>.</div></div></div>
 <div class="match liveUpdates"><div class="eyebrow">🔵 LIVE UPDATES</div>
 <div class="updateRow"><div class="updateIcon">✓</div><span>10:24 AM</span><div><b>Complaint reported by citizen</b><br><span>Your issue was registered with ID ${saved.id}.</span></div><div style="color:#18a974">✓</div></div>
 <div class="updateRow"><div class="updateIcon">✓</div><span>10:28 AM</span><div><b>AI triage completed</b><br><span>Issue analysed and categorised by urgency.</span></div><div style="color:#18a974">✓</div></div>
