@@ -26,6 +26,14 @@ table{width:100%;border-collapse:collapse;background:white;border-radius:10px;ov
 .badge{display:inline-block;padding:5px 9px;border-radius:20px;background:#fff0c2;color:#765700;font-size:12px}
 footer{text-align:center;padding:25px;color:#718096}
 @media(max-width:800px){header{display:block}nav{margin-top:12px}nav button{margin:2px}.grid{grid-template-columns:1fr}h1{font-size:32px}.hero{padding:28px}}
+
+/* Professional SIH presentation layer */
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid #b9c9d6;border-top-color:#0b6eaa;border-radius:50%;animation:spin .7s linear infinite;vertical-align:-2px;margin-right:6px}@keyframes spin{to{transform:rotate(360deg)}}
+body{background:linear-gradient(180deg,#f3f7fb 0%,#eef3f8 100%);font-family:Inter,Segoe UI,Arial,sans-serif}
+header{background:linear-gradient(135deg,#073b5c,#0b6eaa);padding:15px 6%;box-shadow:0 4px 18px #073b5c22}
+.logo{letter-spacing:.2px}.logo:before{content:"JS";display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;margin-right:10px;border-radius:9px;background:#ffffff22;border:1px solid #ffffff44;font-size:12px;vertical-align:middle}
+nav button{font-size:14px;transition:.2s}nav button:hover,nav button.active{background:#ffffff1c;transform:translateY(-1px)}
+main{max-width:1160px;padding:42px 20px 55px}.hero{position:relative;overflow:hidden;border:1px solid #e0e8ef;padding:48px;box-shadow:0 14px 40px #17324d12}.hero:after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;right:-80px;top:-100px;background:#0b6eaa12}.hero h1{font-size:44px;letter-spacing:-1px}.subtitle{font-size:19px}.hero p:nth-of-type(2){max-width:780px;color:#566577;line-height:1.7}.btn{box-shadow:0 5px 12px #0b6eaa24;transition:.2s}.btn:hover{transform:translateY(-1px);box-shadow:0 8px 18px #0b6eaa30}.grid{gap:20px}.card,.form{border:1px solid #e2e8ee;box-shadow:0 8px 24px #17324d0d}.card{transition:.2s}.card:hover{transform:translateY(-2px);box-shadow:0 12px 28px #17324d14}.step{border-left:0;border-top:4px solid #0b6eaa}.step h3{color:#0b3d62}.form{max-width:820px;padding:30px}.form label{color:#30475b;font-size:14px}input,select,textarea{background:#fbfdff;border:1px solid #cbd7e2;padding:13px 14px;outline:none;transition:.2s}input:focus,select:focus,textarea:focus{border-color:#0b6eaa;box-shadow:0 0 0 3px #0b6eaa14}textarea{resize:vertical}.status{background:#f0f8f3;border:1px solid #bfe0ca;line-height:1.6;box-shadow:0 4px 12px #1c7c3a0b}.badge{background:#fff3cf;border:1px solid #f1d98b}.page>h2{font-size:30px;margin-bottom:8px}.page>p{color:#5b6b7b}.section-kicker{font-size:12px;font-weight:700;color:#0b6eaa;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:7px}
 </style>
 </head>
 <body>
@@ -43,6 +51,7 @@ footer{text-align:center;padding:25px;color:#718096}
 <main>
 <section id="home" class="page active">
 <div class="hero">
+<div class="section-kicker">Citizen • University • Industry</div>
 <h1>JAN SAMADHAN SETU</h1>
 <p class="subtitle">Connecting citizen challenges with university & industry solutions.</p>
 <p>A simple digital platform where people can report local problems, the system can sort them by urgency, and universities, startups and industry partners can help develop solutions.</p>
@@ -56,7 +65,8 @@ footer{text-align:center;padding:25px;color:#718096}
 </section>
 
 <section id="report" class="page">
-<h2>Report a Problem</h2>
+<div class="section-kicker">CAPTURE</div><h2>Report a Problem</h2>
+<p>Share a local challenge so it can be reviewed and matched with a suitable solution partner.</p>
 <div class="form">
 <label>Problem Category</label>
 <select id="category">
@@ -76,7 +86,8 @@ footer{text-align:center;padding:25px;color:#718096}
 </section>
 
 <section id="track" class="page">
-<h2>Track Your Report</h2>
+<div class="section-kicker">DELIVER</div><h2>Track Your Report</h2>
+<p>Check the current stage of your submitted challenge.</p>
 <div class="form">
 <label>Enter Complaint ID</label>
 <input id="trackId" placeholder="Example: JSS-123456">
@@ -86,7 +97,7 @@ footer{text-align:center;padding:25px;color:#718096}
 </section>
 
 <section id="partners" class="page">
-<h2>Solution Partner</h2>
+<div class="section-kicker">CONNECT</div><h2>Solution Partner</h2>
 <p>Universities, startups, industry and CSR partners can view challenges and offer solutions.</p>
 <div class="card">
 <h3>Open Challenge</h3>
@@ -98,7 +109,7 @@ footer{text-align:center;padding:25px;color:#718096}
 </section>
 
 <section id="dashboard" class="page">
-<h2>Impact Dashboard</h2>
+<div class="section-kicker">IMPACT</div><h2>Impact Dashboard</h2>
 <div class="grid">
 <div class="card"><h3 id="total">0</h3><p>Reports</p></div>
 <div class="card"><h3>1</h3><p>Partner Matched</p></div>
@@ -132,20 +143,20 @@ function submitReport(){
  document.getElementById('total').textContent='1';
  const box=document.getElementById('reportStatus');
  box.style.display='block';
- box.innerHTML='⏳ Processing report...';
+ box.innerHTML='<span class="spinner"></span> Processing report...';
  waitThen(()=>box.innerHTML='<b>Report submitted successfully.</b><br>Complaint ID: <b>'+id+'</b><br>AI triage: '+report.urgency+' priority.<br>Next step: Human validation and solution matching.');
 }
 function trackReport(){
  const id=document.getElementById('trackId').value.trim();
  const saved=JSON.parse(localStorage.getItem('jssReport')||'null');
- const box=document.getElementById('trackStatus');box.style.display='block';box.innerHTML='⏳ Checking...';
+ const box=document.getElementById('trackStatus');box.style.display='block';box.innerHTML='<span class="spinner"></span> Checking...';
  waitThen(()=>{
  if(saved && id===saved.id) box.innerHTML='<b>'+saved.id+'</b><br><span class="badge">Under Validation</span><br><br>Report received → AI Triage → Human Validation → Partner Matching → Pilot & Track';
  else box.innerHTML='No matching report found in this browser. Please use the Complaint ID generated after submitting a report.';
  });
 }
 function partnerAction(){
- const box=document.getElementById('partnerStatus');box.style.display='block';box.innerHTML='⏳ Sending proposal...';
+ const box=document.getElementById('partnerStatus');box.style.display='block';box.innerHTML='<span class="spinner"></span> Sending proposal...';
  waitThen(()=>box.innerHTML='<b>Solution proposal recorded.</b><br>The challenge can now move to collaboration and pilot planning.');
 }
 </script>
